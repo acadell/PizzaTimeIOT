@@ -13,4 +13,8 @@ cmdmp3
 Additional players can be added, see play-sounds documentations here: https://www.npmjs.com/package/play-sound
 
 
-To run, go to the directory with index.js and use the command "node index.js"
+To run, go to the directory with index.js and use the following commands
+npm install express
+npm install body-parser
+npm install play-sounds
+node index.js
