@@ -5,6 +5,10 @@ const app = express()
 const port = 55555
 
 //setup for recieving post requests
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.use(bodyParser.json())
 //app.use(express.json())
 
@@ -16,15 +20,16 @@ app.get('/', function (req,res){
 
 
 app.post('/', function (req, res){
+    console.log('incoming request', req.body)
     console.log(req.body.name)
     BasePostAction(req.body.name)
-    res.end("Recieved")
+    res.sendFile(path.join(__dirname + '/index.html'))
 })
 
 //functions for executing the code on post
 function BasePostAction(postName){
     console.log("Got a post request!")
-    
+
     if(postName == "PizzaTime")
         PizzaTime()
 }
